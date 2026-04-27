@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C Programming: Matrix Multiplication & Array Sorting | VoltX Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!--  STICKY HEADER                                             -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<header id="sticky-header">
+  <div class="header-left">
+    <div class="logo">⚡ VoltX Academy</div>
+    <span class="topic-badge" id="current-topic">Introduction</span>
+  </div>
+  <div class="header-center">
+    <div class="progress-container">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+    <span class="progress-text" id="progress-text">Learning Progress: 0%</span>
+  </div>
+  <div class="header-right">
+    <button class="nav-btn" id="btn-prev" onclick="navigateSlide(-1)" title="Previous Slide">◀ Prev</button>
+    <span class="slide-counter" id="slide-counter">1 / 43</span>
+    <button class="nav-btn" id="btn-next" onclick="navigateSlide(1)" title="Next Slide">Next ▶</button>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!--  COMPLETION BANNER                                         -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="completion-banner" id="completion-banner">
+  🎉 Congratulations! You've completed the course! 🎓
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!--  MAIN SLIDES CONTAINER                                     -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<main id="slides-container">
+
+  <!-- ─────────────────────────────────────────────────────── -->
+  <!--  SECTION 1 – INTRODUCTION (Slides 1–8)                  -->
+  <!-- ─────────────────────────────────────────────────────── -->
+
+  <!-- SLIDE 1: Hero / Cover -->
+  <section class="slide slide-hero" id="slide-1" data-section="Introduction" data-index="1">
+    <div class="slide-inner">
+      <div class="hero-badge">📚 Interactive Course</div>
+      <h1 class="hero-title">C Programming<br><span class="gradient-text">Mastery</span></h1>
+      <p class="hero-subtitle">Matrix Multiplication &amp; Array Sorting</p>
+      <div class="hero-tags">
+        <span class="tag">🔢 Matrices</span>
+        <span class="tag">🔀 Sorting</span>
+        <span class="tag">💻 C Language</span>
+        <span class="tag">🎮 Interactive</span>
+      </div>
+      <button class="cta-btn" onclick="navigateSlide(1)">Start Learning →</button>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">43</span><span class="stat-label">Slides</span></div>
+        <div class="stat"><span class="stat-num">6</span><span class="stat-label">Sections</span></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">Quizzes</span></div>
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">Simulators</span></div>
+      </div>
+    </div>
+    <div class="floating-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+  </section>
+
+  <!-- SLIDE 2: What is C Programming? -->
+  <section class="slide slide-info" id="slide-2" data-section="Introduction" data-index="2">
+    <div class="slide-inner">
+      <div class="section-tag">Section 1 · Introduction</div>
+      <h2 class="slide-title">What is <span class="gradient-text">C Programming?</span></h2>
+      <div class="info-grid">
+        <div class="info-card glass" data-tooltip="C was created by Dennis Ritchie at Bell Labs in 1972">
+          <div class="info-icon">📅</div>
+          <h3>Born in 1972</h3>
+          <p>Created by Dennis Ritchie at Bell Labs, C became the foundation of modern computing.</p>
+        </div>
+        <div class="info-card glass" data-tooltip="C is used to build operating systems, drivers, and embedded systems">
+          <div class="info-icon">⚙️</div>
+          <h3>Systems Language</h3>
+          <p>Powers operating systems (UNIX, Linux, Windows kernel), compilers, and embedded firmware.</p>
+        </div>
+        <div class="info-card glass" data-tooltip="C influenced C++, Java, Python, and many others">
+          <div class="info-icon">🌳</div>
+          <h3>Parent of Languages</h3>
+          <p>C influenced almost every popular programming language — C++, Java, Python, JavaScript.</p>
+        </div>
+        <div class="info-card glass" data-tooltip="C gives low-level memory access via pointers">
+          <div class="info-icon">🔩</div>
+          <h3>Close to Hardware</h3>
+          <p>Direct memory management with pointers makes C extremely fast and powerful.</p>
+        </div>
+      </div>
+      <div class="code-snippet glass">
+        <span class="code-comment">// Your first C program</span><br>
+        <span class="code-keyword">#include</span> <span class="code-string">&lt;stdio.h&gt;</span><br>
+        <span class="code-keyword">int</span> main() {<br>
+        &nbsp;&nbsp;printf(<span class="code-string">"Hello, VoltX Academy!\n"</span>);<br>
+        &nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-num">0</span>;<br>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 3: Why Arrays & Matrices? -->
+  <section class="slide slide-info" id="slide-3" data-section="Introduction" data-index="3">
+    <div class="slide-inner">
+      <div class="section-tag">Section 1 · Introduction</div>
+      <h2 class="slide-title">Why <span class="gradient-text">Arrays &amp; Matrices?</span></h2>
+      <div class="two-col">
+        <div class="col-content">
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-icon">📦</div>
+              <div>
+                <strong>Arrays</strong> store multiple values of the same type in contiguous memory.
+                Instead of 10 variables, use <code>int arr[10]</code>.
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🔲</div>
+              <div>
+                <strong>Matrices</strong> (2D arrays) represent grids: images, tables, game boards, transformation data.
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">⚡</div>
+              <div>
+                <strong>Efficiency</strong>: O(1) access by index. Loops + arrays = powerful algorithms.
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🧮</div>
+              <div>
+                <strong>Mathematics</strong>: Linear algebra operations (dot product, transformation) use matrices.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-visual">
+          <div class="array-visual">
+            <div class="av-label">1D Array: <code>int arr[5]</code></div>
+            <div class="av-boxes">
+              <div class="av-box"><span class="av-val">10</span><span class="av-idx">[0]</span></div>
+              <div class="av-box"><span class="av-val">25</span><span class="av-idx">[1]</span></div>
+              <div class="av-box"><span class="av-val">7</span><span class="av-idx">[2]</span></div>
+              <div class="av-box"><span class="av-val">43</span><span class="av-idx">[3]</span></div>
+              <div class="av-box"><span class="av-val">18</span><span class="av-idx">[4]</span></div>
+            </div>
+          </div>
+          <div class="matrix-visual">
+            <div class="av-label">2D Array: <code>int mat[3][3]</code></div>
+            <div class="mv-grid">
+              <div class="mv-cell">1</div><div class="mv-cell">2</div><div class="mv-cell">3</div>
+              <div class="mv-cell">4</div><div class="mv-cell">5</div><div class="mv-cell">6</div>
+              <div class="mv-cell">7</div><div class="mv-cell">8</div><div class="mv-cell">9</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 4: Real-World Applications -->
+  <section class="slide slide-apps" id="slide-4" data-section="Introduction" data-index="4">
+    <div class="slide-inner">
+      <div class="section-tag">Section 1 · Introduction</div>
+      <h2 class="slide-title">Real-World <span class="gradient-text">Applications</span></h2>
+      <div class="apps-grid">
+        <div class="app-card glass">
+          <div class="app-icon">🎮</div>
+          <h3>Game Development</h3>
+          <p>3D transformations, collision detection, physics engines all rely on matrix operations.</p>
+        </div>
+        <div class="app-card glass">
+          <div class="app-icon">🤖</div>
+          <h3>Machine Learning</h3>
+          <p>Neural networks multiply matrices billions of times — weights, activations, gradients.</p>
+        </div>
+        <div class="app-card glass">
+          <div class="app-icon">📊</div>
+          <h3>Data Analysis</h3>
+          <p>Sorting datasets, ranking results, pivot tables — all powered by sorting algorithms.</p>
+        </div>
+        <div class="app-card glass">
+          <div class="app-icon">🖼️</div>
+          <h3>Image Processing</h3>
+          <p>Every pixel is a matrix value. Filters, blurs, and transforms are matrix multiplications.</p>
+        </div>
+        <div class="app-card glass">
+          <div class="app-icon">🔐</div>
+          <h3>Cryptography</h3>
+          <p>Hill cipher and many encryption algorithms use matrix operations on numeric data.</p>
+        </div>
+        <div class="app-card glass">
+          <div class="app-icon">🚀</div>
+          <h3>GPS &amp; Navigation</h3>
+          <p>Sorting waypoints by distance, matrix transformations for coordinate systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 5: Course Roadmap -->
+  <section class="slide slide-roadmap" id="slide-5" data-section="Introduction" data-index="5">
+    <div class="slide-inner">
+      <div class="section-tag">Section 1 · Introduction</div>
+      <h2 class="slide-title">Your Learning <span class="gradient-text">Roadmap</span></h2>
+      <div class="roadmap">
+        <div class="road-item active-road">
+          <div class="road-num">1</div>
+          <div class="road-content">
+            <strong>Introduction</strong> — C basics, arrays, real-world context
+          </div>
+        </div>
+        <div class="road-connector"></div>
+        <div class="road-item">
+          <div class="road-num">2</div>
+          <div class="road-content">
+            <strong>Matrix Multiplication</strong> — Theory, 2×2 and 3×3 examples
+          </div>
+        </div>
+        <div class="road-connector"></div>
+        <div class="road-item">
+          <div class="road-num">3</div>
+          <div class="road-content">
+            <strong>Matrix in C</strong> — Code + virtual compiler simulation
+          </div>
+        </div>
+        <div class="road-connector"></div>
+        <div class="road-item">
+          <div class="road-num">4</div>
+          <div class="road-content">
+            <strong>Array Sorting</strong> — Concepts, ascending &amp; descending
+          </div>
+        </div>
+        <div class="road-connector"></div>
+        <div class="road-item">
+          <div class="road-num">5</div>
+          <div class="road-content">
+            <strong>Sorting in C</strong> — Code + animated sorting simulator
+          </div>
+        </div>
+        <div class="road-connector"></div>
+        <div class="road-item">
+          <div class="road-num">6</div>
+          <div class="road-content">
+            <strong>Quizzes &amp; Review</strong> — Test your knowledge
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 6: Quiz – Intro -->
+  <section class="slide slide-quiz" id="slide-6" data-section="Introduction" data-index="6">
+    <div class="slide-inner">
+      <div class="quiz-header">
+        <div class="quiz-badge">🧠 Quick Check – Introduction</div>
+        <h2 class="slide-title">Test Your <span class="gradient-text">Knowledge</span></h2>
+      </div>
+      <div class="quiz-container" id="quiz-intro">
+        <div class="quiz-question active-q" data-qid="q1">
+          <p class="q-text">1. Who created the C programming language?</p>
+          <div class="q-options">
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-intro')">Linus Torvalds</button>
+            <button class="q-opt" onclick="checkAnswer(this,'correct','quiz-intro')">Dennis Ritchie</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-intro')">James Gosling</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-intro')">Bjarne Stroustrup</button>
+          </div>
+          <div class="q-hint hidden">💡 Hint: He worked at Bell Labs in 1972 and co-created UNIX.</div>
+          <div class="q-feedback hidden"></div>
+        </div>
+        <div class="quiz-question hidden" data-qid="q2">
+          <p class="q-text">2. What does a 2D array in C represent?</p>
+          <div class="q-options">
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-intro')">A linked list</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-intro')">A single row of values</button>
+            <button class="q-opt" onclick="checkAnswer(this,'correct','quiz-intro')">A matrix / grid of values</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-intro')">A pointer to memory</button>
+          </div>
+          <div class="q-hint hidden">💡 Hint: Think rows and columns — like a spreadsheet.</div>
+          <div class="q-feedback hidden"></div>
+        </div>
+        <div class="quiz-score hidden" id="score-quiz-intro"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────────────────── -->
+  <!--  SECTION 2 – MATRIX MULTIPLICATION THEORY (Slides 7-17)-->
+  <!-- ─────────────────────────────────────────────────────── -->
+
+  <!-- SLIDE 7: Section Header -->
+  <section class="slide slide-section-header" id="slide-7" data-section="Matrix Multiplication" data-index="7">
+    <div class="slide-inner centered">
+      <div class="section-number">02</div>
+      <h2 class="section-main-title">Matrix<br><span class="gradient-text">Multiplication</span></h2>
+      <p class="section-desc">Learn the mathematical foundation of matrix multiplication — the backbone of graphics, AI, and engineering.</p>
+      <div class="section-topics">
+        <span>Definition</span>
+        <span>Conditions</span>
+        <span>2×2 Example</span>
+        <span>3×3 Example</span>
+        <span>Visual Mapping</span>
+      </div>
+    </div>
+    <div class="bg-formula">A × B = C</div>
+  </section>
+
+  <!-- SLIDE 8: What is Matrix Multiplication? -->
+  <section class="slide slide-info" id="slide-8" data-section="Matrix Multiplication" data-index="8">
+    <div class="slide-inner">
+      <div class="section-tag">Section 2 · Matrix Multiplication</div>
+      <h2 class="slide-title">What is <span class="gradient-text">Matrix Multiplication?</span></h2>
+      <div class="two-col">
+        <div class="col-content">
+          <div class="definition-box glass">
+            <h3>📖 Definition</h3>
+            <p>Matrix multiplication is a binary operation that produces a matrix from two matrices. Each element of the result is the <strong>dot product</strong> of a row from the first matrix and a column from the second matrix.</p>
+          </div>
+          <div class="formula-box glass">
+            <h3>🔢 Formula</h3>
+            <p>For matrices A (m×n) and B (n×p):</p>
+            <div class="formula">C[i][j] = Σ A[i][k] × B[k][j]</div>
+            <p>where k ranges from 0 to n-1</p>
+          </div>
+        </div>
+        <div class="col-visual">
+          <div class="matrix-mult-demo glass">
+            <div class="mm-label">A (2×2)</div>
+            <div class="mm-matrix">
+              <div class="mm-row"><div class="mm-cell row-hl">1</div><div class="mm-cell row-hl">2</div></div>
+              <div class="mm-row"><div class="mm-cell">3</div><div class="mm-cell">4</div></div>
+            </div>
+            <div class="mm-op">×</div>
+            <div class="mm-matrix">
+              <div class="mm-row"><div class="mm-cell col-hl">5</div><div class="mm-cell">7</div></div>
+              <div class="mm-row"><div class="mm-cell col-hl">6</div><div class="mm-cell">8</div></div>
+            </div>
+            <div class="mm-op">=</div>
+            <div class="mm-matrix">
+              <div class="mm-row"><div class="mm-cell result-hl">17</div><div class="mm-cell">23</div></div>
+              <div class="mm-row"><div class="mm-cell">39</div><div class="mm-cell">53</div></div>
+            </div>
+          </div>
+          <div class="hl-note">C[0][0] = (1×5) + (2×6) = 5 + 12 = <strong>17</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 9: Conditions for Matrix Multiplication -->
+  <section class="slide slide-conditions" id="slide-9" data-section="Matrix Multiplication" data-index="9">
+    <div class="slide-inner">
+      <div class="section-tag">Section 2 · Matrix Multiplication</div>
+      <h2 class="slide-title">Conditions for <span class="gradient-text">Multiplication</span></h2>
+      <div class="condition-layout">
+        <div class="condition-main glass">
+          <div class="condition-icon">⚠️</div>
+          <h3>The Golden Rule</h3>
+          <p class="condition-rule">Number of <strong>COLUMNS</strong> in Matrix A must equal<br>Number of <strong>ROWS</strong> in Matrix B</p>
+          <div class="condition-visual">
+            <div class="cv-matrix">A<br><span class="dim-label">m × <span class="must-match">n</span></span></div>
+            <div class="cv-arrow">×</div>
+            <div class="cv-matrix">B<br><span class="dim-label"><span class="must-match">n</span> × p</span></div>
+            <div class="cv-arrow">=</div>
+            <div class="cv-matrix result-cv">C<br><span class="dim-label">m × p</span></div>
+          </div>
+        </div>
+        <div class="examples-col">
+          <div class="example-check glass">
+            <span class="check-icon">✅</span>
+            <div>
+              <strong>Valid:</strong> A(2×3) × B(3×2) = C(2×2)<br>
+              <small>Columns of A = 3 = Rows of B ✓</small>
+            </div>
+          </div>
+          <div class="example-check glass">
+            <span class="check-icon">✅</span>
+            <div>
+              <strong>Valid:</strong> A(3×3) × B(3×3) = C(3×3)<br>
+              <small>Columns of A = 3 = Rows of B ✓</small>
+            </div>
+          </div>
+          <div class="example-check glass error-check">
+            <span class="check-icon">❌</span>
+            <div>
+              <strong>Invalid:</strong> A(2×3) × B(2×3)<br>
+              <small>Columns of A = 3 ≠ Rows of B = 2 ✗</small>
+            </div>
+          </div>
+          <div class="example-check glass error-check">
+            <span class="check-icon">❌</span>
+            <div>
+              <strong>Invalid:</strong> A(4×2) × B(3×4)<br>
+              <small>Columns of A = 2 ≠ Rows of B = 3 ✗</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 10: 2×2 Matrix Multiplication – Setup -->
+  <section class="slide slide-info" id="slide-10" data-section="Matrix Multiplication" data-index="10">
+    <div class="slide-inner">
+      <div class="section-tag">Section 2 · Matrix Multiplication</div>
+      <h2 class="slide-title"><span class="gradient-text">2×2</span> Matrix Example – Setup</h2>
+      <div class="setup-layout">
+        <div class="setup-card glass">
+          <h3>Matrix A</h3>
+          <div class="setup-matrix">
+            <div class="sm-row"><div class="sm-cell a-cell">1</div><div class="sm-cell a-cell">2</div></div>
+            <div class="sm-row"><div class="sm-cell a-cell">3</div><div class="sm-cell a-cell">4</div></div>
+          </div>
+          <div class="matrix-info">2 rows × 2 columns</div>
+        </div>
+        <div class="setup-op">×</div>
+        <div class="setup-card glass">
+          <h3>Matrix B</h3>
+          <div class="setup-matrix">
+            <div class="sm-row"><div class="sm-cell b-cell">5</div><div class="sm-cell b-cell">6</div></div>
+            <div class="sm-row"><div class="sm-cell b-cell">7</div><div class="sm-cell b-cell">8</div></div>
+          </div>
+          <div class="matrix-info">2 rows × 2 columns</div>
+        </div>
+        <div class="setup-op">=</div>
+        <div class="setup-card glass result-card">
+          <h3>Result C = ?</h3>
+          <div class="setup-matrix">
+            <div class="sm-row"><div class="sm-cell q-cell">?</div><div class="sm-cell q-cell">?</div></div>
+            <div class="sm-row"><div class="sm-cell q-cell">?</div><div class="sm-cell q-cell">?</div></div>
+          </div>
+          <div class="matrix-info">2 rows × 2 columns</div>
+        </div>
+      </div>
+      <div class="setup-note glass">
+        💡 We need to fill in 4 elements: C[0][0], C[0][1], C[1][0], C[1][1].<br>
+        Each element is a <strong>dot product</strong> of a row from A and a column from B.
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 11: 2×2 Multiplication – Step by Step -->
+  <section class="slide slide-steps" id="slide-11" data-section="Matrix Multiplication" data-index="11">
+    <div class="slide-inner">
+      <div class="section-tag">Section 2 · Matrix Multiplication</div>
+      <h2 class="slide-title">2×2 Multiplication — <span class="gradient-text">Step by Step</span></h2>
+      <div class="step-calc-container">
+        <div class="step-matrices glass">
+          <div class="sm-matrices-wrap">
+            <div>
+              <div class="sm-label">A</div>
+              <div id="mm2x2-A" class="calc-matrix">
+                <div class="cm-row"><div class="cm-cell" id="a00">1</div><div class="cm-cell" id="a01">2</div></div>
+                <div class="cm-row"><div class="cm-cell" id="a10">3</div><div class="cm-cell" id="a11">4</div></div>
+              </div>
+            </div>
+            <div class="calc-op">×</div>
+            <div>
+              <div class="sm-label">B</div>
+              <div id="mm2x2-B" class="calc-matrix">
+                <div class="cm-row"><div class="cm-cell" id="b00">5</div><div class="cm-cell" id="b01">6</div></div>
+                <div class="cm-row"><div class="cm-cell" id="b10">7</div><div class="cm-cell" id="b11">8</div></div>
+              </div>
+            </div>
+            <div class="calc-op">=</div>
+            <div>
+              <div class="sm-label">C (Result)</div>
+              <div id="mm2x2-C" class="calc-matrix">
+                <div class="cm-row"><div class="cm-cell result-empty" id="c00">?</div><div class="cm-cell result-empty" id="c01">?</div></div>
+                <div class="cm-row"><div class="cm-cell result-empty" id="c10">?</div><div class="cm-cell result-empty" id="c11">?</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="step-explanation glass" id="mm2x2-explanation">
+          <div class="exp-title">📍 Current Step</div>
+          <div class="exp-text" id="mm2x2-exp-text">Click "Next Step" to begin the step-by-step calculation!</div>
+          <div class="exp-formula" id="mm2x2-formula"></div>
+        </div>
+        <div class="step-controls">
+          <button class="ctrl-btn" id="mm2x2-prev" onclick="mm2x2Step(-1)" disabled>◀ Prev Step</button>
+          <span class="step-indicator" id="mm2x2-step-ind">Step 0 / 4</span>
+          <button class="ctrl-btn primary-ctrl" id="mm2x2-next" onclick="mm2x2Step(1)">Next Step ▶</button>
+          <button class="ctrl-btn reset-ctrl" onclick="mm2x2Reset()">↺ Reset</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 12: 3×3 Matrix Setup -->
+  <section class="slide slide-info" id="slide-12" data-section="Matrix Multiplication" data-index="12">
+    <div class="slide-inner">
+      <div class="section-tag">Section 2 · Matrix Multiplication</div>
+      <h2 class="slide-title"><span class="gradient-text">3×3</span> Matrix Example – Setup</h2>
+      <div class="setup-layout">
+        <div class="setup-card glass">
+          <h3>Matrix A (3×3)</h3>
+          <div class="setup-matrix-3">
+            <div class="sm-row"><div class="sm-cell a-cell">1</div><div class="sm-cell a-cell">2</div><div class="sm-cell a-cell">3</div></div>
+            <div class="sm-row"><div class="sm-cell a-cell">4</div><div class="sm-cell a-cell">5</div><div class="sm-cell a-cell">6</div></div>
+            <div class="sm-row"><div class="sm-cell a-cell">7</div><div class="sm-cell a-cell">8</div><div class="sm-cell a-cell">9</div></div>
+          </div>
+        </div>
+        <div class="setup-op">×</div>
+        <div class="setup-card glass">
+          <h3>Matrix B (3×3)</h3>
+          <div class="setup-matrix-3">
+            <div class="sm-row"><div class="sm-cell b-cell">9</div><div class="sm-cell b-cell">8</div><div class="sm-cell b-cell">7</div></div>
+            <div class="sm-row"><div class="sm-cell b-cell">6</div><div class="sm-cell b-cell">5</div><div class="sm-cell b-cell">4</div></div>
+            <div class="sm-row"><div class="sm-cell b-cell">3</div><div class="sm-cell b-cell">2</div><div class="sm-cell b-cell">1</div></div>
+          </div>
+        </div>
+        <div class="setup-op">=</div>
+        <div class="setup-card glass result-card">
+          <h3>Result C (3×3)</h3>
+          <div class="setup-matrix-3">
+            <div class="sm-row">
+              <div class="sm-cell q-cell">30</div><div class="sm-cell q-cell">24</div><div class="sm-cell q-cell">18</div>
+            </div>
+            <div class="sm-row">
+              <div class="sm-cell q-cell">84</div><div class="sm-cell q-cell">69</div><div class="sm-cell q-cell">54</div>
+            </div>
+            <div class="sm-row">
+              <div class="sm-cell q-cell">138</div><div class="sm-cell q-cell">114</div><div class="sm-cell q-cell">90</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="setup-note glass">
+        💡 For a 3×3 matrix: each result element C[i][j] = A[i][0]×B[0][j] + A[i][1]×B[1][j] + A[i][2]×B[2][j]<br>
+        That's <strong>9 dot products</strong>, each requiring <strong>3 multiplications + 2 additions</strong>.
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 13: 3×3 Interactive Calculation -->
+  <section class="slide slide-steps" id="slide-13" data-section="Matrix Multiplication" data-index="13">
+    <div class="slide-inner">
+      <div class="section-tag">Section 2 · Matrix Multiplication</div>
+      <h2 class="slide-title">3×3 Multiplication — <span class="gradient-text">Interactive</span></h2>
+      <div class="mm3-container">
+        <div class="mm3-matrices glass">
+          <div class="mm3-grid-wrap">
+            <div class="mm3-side">
+              <div class="mm3-title">A</div>
+              <div class="mm3-grid" id="mm3-A">
+                <div class="mm3-cell" id="mm3-a00">1</div><div class="mm3-cell" id="mm3-a01">2</div><div class="mm3-cell" id="mm3-a02">3</div>
+                <div class="mm3-cell" id="mm3-a10">4</div><div class="mm3-cell" id="mm3-a11">5</div><div class="mm3-cell" id="mm3-a12">6</div>
+                <div class="mm3-cell" id="mm3-a20">7</div><div class="mm3-cell" id="mm3-a21">8</div><div class="mm3-cell" id="mm3-a22">9</div>
+              </div>
+            </div>
+            <div class="mm3-op">×</div>
+            <div class="mm3-side">
+              <div class="mm3-title">B</div>
+              <div class="mm3-grid" id="mm3-B">
+                <div class="mm3-cell" id="mm3-b00">9</div><div class="mm3-cell" id="mm3-b01">8</div><div class="mm3-cell" id="mm3-b02">7</div>
+                <div class="mm3-cell" id="mm3-b10">6</div><div class="mm3-cell" id="mm3-b11">5</div><div class="mm3-cell" id="mm3-b12">4</div>
+                <div class="mm3-cell" id="mm3-b20">3</div><div class="mm3-cell" id="mm3-b21">2</div><div class="mm3-cell" id="mm3-b22">1</div>
+              </div>
+            </div>
+            <div class="mm3-op">=</div>
+            <div class="mm3-side">
+              <div class="mm3-title">C (Result)</div>
+              <div class="mm3-grid" id="mm3-C">
+                <div class="mm3-cell result-empty" id="mm3-c00">?</div><div class="mm3-cell result-empty" id="mm3-c01">?</div><div class="mm3-cell result-empty" id="mm3-c02">?</div>
+                <div class="mm3-cell result-empty" id="mm3-c10">?</div><div class="mm3-cell result-empty" id="mm3-c11">?</div><div class="mm3-cell result-empty" id="mm3-c12">?</div>
+                <div class="mm3-cell result-empty" id="mm3-c20">?</div><div class="mm3-cell result-empty" id="mm3-c21">?</div><div class="mm3-cell result-empty" id="mm3-c22">?</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mm3-exp glass" id="mm3-exp">
+          <div class="exp-title">📍 Calculating...</div>
+          <div id="mm3-exp-text">Click "Next Step" to calculate each element of C one by one.</div>
+          <div class="exp-formula" id="mm3-formula"></div>
+        </div>
+        <div class="step-controls">
+          <button class="ctrl-btn" id="mm3-prev" onclick="mm3Step(-1)" disabled>◀ Prev</button>
+          <span class="step-indicator" id="mm3-step-ind">Step 0 / 9</span>
+          <button class="ctrl-btn primary-ctrl" id="mm3-next" onclick="mm3Step(1)">Next ▶</button>
+          <button class="ctrl-btn reset-ctrl" onclick="mm3Reset()">↺ Reset</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 14: Visual Row × Column Mapping -->
+  <section class="slide slide-info" id="slide-14" data-section="Matrix Multiplication" data-index="14">
+    <div class="slide-inner">
+      <div class="section-tag">Section 2 · Matrix Multiplication</div>
+      <h2 class="slide-title">Row × Column <span class="gradient-text">Visual Mapping</span></h2>
+      <div class="mapping-layout">
+        <div class="mapping-visual glass">
+          <div class="map-title">How C[i][j] is Calculated</div>
+          <div class="map-diagram">
+            <div class="map-matrix-A">
+              <div class="map-label">Matrix A</div>
+              <div class="map-row hl-row">→ Row i: [<span class="hl-num">a</span>, <span class="hl-num">b</span>, <span class="hl-num">c</span>]</div>
+              <div class="map-row">Row: [d, e, f]</div>
+              <div class="map-row">Row: [g, h, i]</div>
+            </div>
+            <div class="map-times">×</div>
+            <div class="map-matrix-B">
+              <div class="map-label">Matrix B</div>
+              <div class="map-col hl-col">↓ Col j<br><span class="hl-num">p</span><br><span class="hl-num">q</span><br><span class="hl-num">r</span></div>
+              <div class="map-col">Col<br>s<br>t<br>u</div>
+              <div class="map-col">Col<br>v<br>w<br>x</div>
+            </div>
+            <div class="map-eq">=</div>
+            <div class="map-result">
+              <div class="map-label">C[i][j]</div>
+              <div class="map-calc">
+                <span class="hl-num">a</span>×<span class="hl-num">p</span> + <span class="hl-num">b</span>×<span class="hl-num">q</span> + <span class="hl-num">c</span>×<span class="hl-num">r</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mapping-rules glass">
+          <h3>🔑 Key Rules</h3>
+          <ul class="rules-list">
+            <li>Take <strong>Row i</strong> from Matrix A (left to right)</li>
+            <li>Take <strong>Column j</strong> from Matrix B (top to bottom)</li>
+            <li>Multiply corresponding elements pairwise</li>
+            <li>Sum all the products → that is C[i][j]</li>
+            <li>Repeat for all combinations of i and j</li>
+          </ul>
+          <div class="complexity-box">
+            <strong>Time Complexity:</strong> O(n³) for n×n matrices
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 15: Matrix Quiz -->
+  <section class="slide slide-quiz" id="slide-15" data-section="Matrix Multiplication" data-index="15">
+    <div class="slide-inner">
+      <div class="quiz-header">
+        <div class="quiz-badge">🧠 Quiz – Matrix Multiplication</div>
+        <h2 class="slide-title">Test What You <span class="gradient-text">Learned</span></h2>
+      </div>
+      <div class="quiz-container" id="quiz-matrix">
+        <div class="quiz-question active-q" data-qid="mq1">
+          <p class="q-text">1. For A(3×4) × B(?×2) to be valid, what must ? be?</p>
+          <div class="q-options">
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-matrix')">2</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-matrix')">3</button>
+            <button class="q-opt" onclick="checkAnswer(this,'correct','quiz-matrix')">4</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-matrix')">Any value</button>
+          </div>
+          <div class="q-hint hidden">💡 Hint: Columns of A must equal Rows of B. A has 4 columns.</div>
+          <div class="q-feedback hidden"></div>
+        </div>
+        <div class="quiz-question hidden" data-qid="mq2">
+          <p class="q-text">2. A(2×3) × B(3×4) gives a result of what dimension?</p>
+          <div class="q-options">
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-matrix')">3×3</button>
+            <button class="q-opt" onclick="checkAnswer(this,'correct','quiz-matrix')">2×4</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-matrix')">3×4</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-matrix')">2×3</button>
+          </div>
+          <div class="q-hint hidden">💡 Hint: Result dimensions are (rows of A) × (columns of B).</div>
+          <div class="q-feedback hidden"></div>
+        </div>
+        <div class="quiz-question hidden" data-qid="mq3">
+          <p class="q-text">3. What is C[0][0] if A = [[1,2],[3,4]] and B = [[1,0],[0,1]]?</p>
+          <div class="q-options">
+            <button class="q-opt" onclick="checkAnswer(this,'correct','quiz-matrix')">1</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-matrix')">3</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-matrix')">0</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-matrix')">2</button>
+          </div>
+          <div class="q-hint hidden">💡 Hint: B is the identity matrix. A × I = A.</div>
+          <div class="q-feedback hidden"></div>
+        </div>
+        <div class="quiz-score hidden" id="score-quiz-matrix"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────────────────── -->
+  <!--  SECTION 3 – MATRIX IN C (Slides 16-24)                 -->
+  <!-- ─────────────────────────────────────────────────────── -->
+
+  <!-- SLIDE 16: Section Header -->
+  <section class="slide slide-section-header" id="slide-16" data-section="Matrix in C" data-index="16">
+    <div class="slide-inner centered">
+      <div class="section-number">03</div>
+      <h2 class="section-main-title">Matrix Multiplication<br><span class="gradient-text">in C</span></h2>
+      <p class="section-desc">Write and simulate a complete C program for matrix multiplication — line by line, variable by variable.</p>
+      <div class="section-topics">
+        <span>Full C Program</span>
+        <span>Line Execution</span>
+        <span>Memory View</span>
+        <span>Loop Tracing</span>
+        <span>Virtual Compiler</span>
+      </div>
+    </div>
+    <div class="bg-formula">int C[N][N];</div>
+  </section>
+
+  <!-- SLIDE 17: The Full C Program -->
+  <section class="slide slide-code" id="slide-17" data-section="Matrix in C" data-index="17">
+    <div class="slide-inner">
+      <div class="section-tag">Section 3 · Matrix in C</div>
+      <h2 class="slide-title">The Complete <span class="gradient-text">C Program</span></h2>
+      <div class="code-display glass">
+        <div class="code-header">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="code-filename">matrix_multiply.c</span>
+        </div>
+        <pre class="code-content"><code><span class="ln">1</span>  <span class="code-keyword">#include</span> <span class="code-string">&lt;stdio.h&gt;</span>
+<span class="ln">2</span>  <span class="code-keyword">#define</span> <span class="code-macro">N</span> <span class="code-num">3</span>
+<span class="ln">3</span>
+<span class="ln">4</span>  <span class="code-keyword">int</span> main() {
+<span class="ln">5</span>      <span class="code-keyword">int</span> A[N][N] = {{<span class="code-num">1</span>,<span class="code-num">2</span>,<span class="code-num">3</span>},{<span class="code-num">4</span>,<span class="code-num">5</span>,<span class="code-num">6</span>},{<span class="code-num">7</span>,<span class="code-num">8</span>,<span class="code-num">9</span>}};
+<span class="ln">6</span>      <span class="code-keyword">int</span> B[N][N] = {{<span class="code-num">9</span>,<span class="code-num">8</span>,<span class="code-num">7</span>},{<span class="code-num">6</span>,<span class="code-num">5</span>,<span class="code-num">4</span>},{<span class="code-num">3</span>,<span class="code-num">2</span>,<span class="code-num">1</span>}};
+<span class="ln">7</span>      <span class="code-keyword">int</span> C[N][N] = {<span class="code-num">0</span>};
+<span class="ln">8</span>      <span class="code-keyword">int</span> i, j, k;
+<span class="ln">9</span>
+<span class="ln">10</span>     <span class="code-keyword">for</span>(i=<span class="code-num">0</span>; i&lt;N; i++) {
+<span class="ln">11</span>         <span class="code-keyword">for</span>(j=<span class="code-num">0</span>; j&lt;N; j++) {
+<span class="ln">12</span>             C[i][j] = <span class="code-num">0</span>;
+<span class="ln">13</span>             <span class="code-keyword">for</span>(k=<span class="code-num">0</span>; k&lt;N; k++) {
+<span class="ln">14</span>                 C[i][j] += A[i][k] * B[k][j];
+<span class="ln">15</span>             }
+<span class="ln">16</span>         }
+<span class="ln">17</span>     }
+<span class="ln">18</span>
+<span class="ln">19</span>     <span class="code-keyword">for</span>(i=<span class="code-num">0</span>; i&lt;N; i++) {
+<span class="ln">20</span>         <span class="code-keyword">for</span>(j=<span class="code-num">0</span>; j&lt;N; j++) {
+<span class="ln">21</span>             printf(<span class="code-string">"%d "</span>, C[i][j]);
+<span class="ln">22</span>         }
+<span class="ln">23</span>         printf(<span class="code-string">"\n"</span>);
+<span class="ln">24</span>     }
+<span class="ln">25</span>     <span class="code-keyword">return</span> <span class="code-num">0</span>;
+<span class="ln">26</span> }</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 18: Variable Declaration Explained -->
+  <section class="slide slide-info" id="slide-18" data-section="Matrix in C" data-index="18">
+    <div class="slide-inner">
+      <div class="section-tag">Section 3 · Matrix in C</div>
+      <h2 class="slide-title">Variable <span class="gradient-text">Declarations</span></h2>
+      <div class="var-explain-grid">
+        <div class="var-card glass" data-tooltip="#define N 3 sets a constant — the matrix size">
+          <div class="var-code">#define N 3</div>
+          <div class="var-desc">Preprocessor constant. Sets matrix size to 3×3. Change N for any size.</div>
+        </div>
+        <div class="var-card glass" data-tooltip="A is a 3×3 integer array initialized with given values">
+          <div class="var-code">int A[N][N]</div>
+          <div class="var-desc">First matrix. 2D array of integers, 3 rows × 3 columns = 9 cells.</div>
+        </div>
+        <div class="var-card glass" data-tooltip="B is a 3×3 integer array initialized with given values">
+          <div class="var-code">int B[N][N]</div>
+          <div class="var-desc">Second matrix. Same dimensions — 3×3 is required for this example.</div>
+        </div>
+        <div class="var-card glass" data-tooltip="C stores the result, initialized to all zeros">
+          <div class="var-code">int C[N][N] = {0}</div>
+          <div class="var-desc">Result matrix. Initialized to all zeros — important to avoid garbage values.</div>
+        </div>
+        <div class="var-card glass" data-tooltip="i, j, k are loop control variables">
+          <div class="var-code">int i, j, k</div>
+          <div class="var-desc">Loop counters: i = row of A/C, j = column of B/C, k = dot product index.</div>
+        </div>
+      </div>
+      <div class="memory-preview glass">
+        <div class="mp-title">Memory Layout of C[3][3] (initialized to 0)</div>
+        <div class="mp-grid">
+          <div class="mp-cell">C[0][0]<br><strong>0</strong></div>
+          <div class="mp-cell">C[0][1]<br><strong>0</strong></div>
+          <div class="mp-cell">C[0][2]<br><strong>0</strong></div>
+          <div class="mp-cell">C[1][0]<br><strong>0</strong></div>
+          <div class="mp-cell">C[1][1]<br><strong>0</strong></div>
+          <div class="mp-cell">C[1][2]<br><strong>0</strong></div>
+          <div class="mp-cell">C[2][0]<br><strong>0</strong></div>
+          <div class="mp-cell">C[2][1]<br><strong>0</strong></div>
+          <div class="mp-cell">C[2][2]<br><strong>0</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 19: Loop Logic Explained -->
+  <section class="slide slide-info" id="slide-19" data-section="Matrix in C" data-index="19">
+    <div class="slide-inner">
+      <div class="section-tag">Section 3 · Matrix in C</div>
+      <h2 class="slide-title">The Triple Loop <span class="gradient-text">Logic</span></h2>
+      <div class="loop-explain glass">
+        <div class="loop-visual">
+          <div class="loop-level outer-loop">
+            <span class="loop-label">Outer: for(i=0; i&lt;N; i++)</span>
+            <div class="loop-desc">Iterates over each <strong>row of A</strong> (and row of C)</div>
+            <div class="loop-level mid-loop">
+              <span class="loop-label">Middle: for(j=0; j&lt;N; j++)</span>
+              <div class="loop-desc">Iterates over each <strong>column of B</strong> (and column of C)</div>
+              <div class="loop-level inner-loop">
+                <span class="loop-label">Inner: for(k=0; k&lt;N; k++)</span>
+                <div class="loop-desc">Computes the <strong>dot product</strong>: accumulates A[i][k] × B[k][j]</div>
+                <div class="loop-code">C[i][j] += A[i][k] * B[k][j];</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="loop-stats">
+          <div class="stat-box glass">
+            <strong>Total Iterations</strong>
+            <div class="stat-val">N³ = 3³ = 27</div>
+          </div>
+          <div class="stat-box glass">
+            <strong>Multiplications</strong>
+            <div class="stat-val">27</div>
+          </div>
+          <div class="stat-box glass">
+            <strong>Additions</strong>
+            <div class="stat-val">18</div>
+          </div>
+          <div class="stat-box glass">
+            <strong>Result Elements</strong>
+            <div class="stat-val">9</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 20: Virtual Compiler – Matrix -->
+  <section class="slide slide-compiler" id="slide-20" data-section="Matrix in C" data-index="20">
+    <div class="slide-inner">
+      <div class="section-tag">Section 3 · Matrix in C</div>
+      <h2 class="slide-title">🖥️ Virtual Compiler — <span class="gradient-text">Matrix Multiplication</span></h2>
+      <div class="compiler-layout">
+        <div class="compiler-code glass" id="mat-compiler-code">
+          <div class="code-header">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+            <span class="code-filename">matrix_multiply.c — Execution</span>
+          </div>
+          <div class="exec-lines" id="mat-exec-lines">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+        <div class="compiler-right">
+          <div class="var-watch glass" id="mat-var-watch">
+            <div class="vw-title">📊 Variable Watch</div>
+            <div class="vw-content" id="mat-vw-content">
+              <div class="vw-row"><span>i</span><span id="vw-mat-i">—</span></div>
+              <div class="vw-row"><span>j</span><span id="vw-mat-j">—</span></div>
+              <div class="vw-row"><span>k</span><span id="vw-mat-k">—</span></div>
+            </div>
+          </div>
+          <div class="mat-result-view glass" id="mat-result-view">
+            <div class="vw-title">📋 Matrix C (Result)</div>
+            <div class="mat-result-grid" id="mat-result-grid">
+              <div class="mr-cell" id="mr-c00">0</div><div class="mr-cell" id="mr-c01">0</div><div class="mr-cell" id="mr-c02">0</div>
+              <div class="mr-cell" id="mr-c10">0</div><div class="mr-cell" id="mr-c11">0</div><div class="mr-cell" id="mr-c12">0</div>
+              <div class="mr-cell" id="mr-c20">0</div><div class="mr-cell" id="mr-c21">0</div><div class="mr-cell" id="mr-c22">0</div>
+            </div>
+          </div>
+          <div class="output-console glass" id="mat-console">
+            <div class="vw-title">💬 Console Output</div>
+            <div class="console-text" id="mat-console-text"></div>
+          </div>
+        </div>
+      </div>
+      <div class="step-controls">
+        <button class="ctrl-btn" id="mat-prev-btn" onclick="matCompilerStep(-1)" disabled>◀ Prev</button>
+        <span class="step-indicator" id="mat-step-ind">Step 0</span>
+        <button class="ctrl-btn primary-ctrl" id="mat-next-btn" onclick="matCompilerStep(1)">▶ Next Step</button>
+        <button class="ctrl-btn reset-ctrl" onclick="matCompilerReset()">↺ Reset</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 21: Output Interpretation -->
+  <section class="slide slide-info" id="slide-21" data-section="Matrix in C" data-index="21">
+    <div class="slide-inner">
+      <div class="section-tag">Section 3 · Matrix in C</div>
+      <h2 class="slide-title">Understanding the <span class="gradient-text">Output</span></h2>
+      <div class="output-layout">
+        <div class="output-code glass">
+          <div class="code-header">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+            <span class="code-filename">Terminal Output</span>
+          </div>
+          <div class="terminal-output">
+            <span class="terminal-prompt">$</span> ./matrix_multiply<br>
+            <span class="t-out"> 30  24  18</span><br>
+            <span class="t-out"> 84  69  54</span><br>
+            <span class="t-out">138 114  90</span>
+          </div>
+        </div>
+        <div class="output-explain glass">
+          <h3>How to Read the Output</h3>
+          <div class="oe-row"><span class="oe-label">Row 0:</span> <span class="oe-val">30, 24, 18</span> → C[0][0]=30, C[0][1]=24, C[0][2]=18</div>
+          <div class="oe-row"><span class="oe-label">Row 1:</span> <span class="oe-val">84, 69, 54</span> → C[1][0]=84, C[1][1]=69, C[1][2]=54</div>
+          <div class="oe-row"><span class="oe-label">Row 2:</span> <span class="oe-val">138, 114, 90</span> → C[2][0]=138, C[2][1]=114, C[2][2]=90</div>
+          <div class="verify-calc">
+            <strong>Verify C[0][0] = 30:</strong><br>
+            A[0] = [1,2,3], B col0 = [9,6,3]<br>
+            1×9 + 2×6 + 3×3 = 9+12+9 = <strong>30 ✓</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 22: Common Errors in C -->
+  <section class="slide slide-info" id="slide-22" data-section="Matrix in C" data-index="22">
+    <div class="slide-inner">
+      <div class="section-tag">Section 3 · Matrix in C</div>
+      <h2 class="slide-title">Common <span class="gradient-text">Errors</span> to Avoid</h2>
+      <div class="errors-grid">
+        <div class="error-card glass">
+          <div class="error-title">❌ Not Initializing C to 0</div>
+          <div class="error-code bad-code">int C[N][N]; // garbage values!</div>
+          <div class="fix-code">int C[N][N] = {0}; // ✅ always initialize</div>
+          <p>Without initialization, C may contain random memory values, giving wrong results.</p>
+        </div>
+        <div class="error-card glass">
+          <div class="error-title">❌ Wrong Loop Order</div>
+          <div class="error-code bad-code">C[j][i] += A[i][k] * B[k][j]; // wrong!</div>
+          <div class="fix-code">C[i][j] += A[i][k] * B[k][j]; // ✅ correct</div>
+          <p>Mixing up indices causes computing wrong elements of C.</p>
+        </div>
+        <div class="error-card glass">
+          <div class="error-title">❌ Forgetting += (using = instead)</div>
+          <div class="error-code bad-code">C[i][j] = A[i][k] * B[k][j]; // overrides!</div>
+          <div class="fix-code">C[i][j] += A[i][k] * B[k][j]; // ✅ accumulate</div>
+          <p>Using = instead of += loses the accumulated sum — only keeps the last product.</p>
+        </div>
+        <div class="error-card glass">
+          <div class="error-title">❌ Incompatible Matrix Sizes</div>
+          <div class="error-code bad-code">// Multiplying A(2×3) as if it were A(3×3)</div>
+          <div class="fix-code">// Always check: cols of A == rows of B ✅</div>
+          <p>Always verify dimensions before coding the multiplication.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 23: Matrix in C Quiz -->
+  <section class="slide slide-quiz" id="slide-23" data-section="Matrix in C" data-index="23">
+    <div class="slide-inner">
+      <div class="quiz-header">
+        <div class="quiz-badge">🧠 Quiz – Matrix in C</div>
+        <h2 class="slide-title">Code Knowledge <span class="gradient-text">Check</span></h2>
+      </div>
+      <div class="quiz-container" id="quiz-matc">
+        <div class="quiz-question active-q" data-qid="cq1">
+          <p class="q-text">1. In C, what does <code>int C[N][N] = {0}</code> do?</p>
+          <div class="q-options">
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-matc')">Declares C as a pointer</button>
+            <button class="q-opt" onclick="checkAnswer(this,'correct','quiz-matc')">Initializes all elements of C to zero</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-matc')">Sets only C[0][0] to 0</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-matc')">Causes a compile error</button>
+          </div>
+          <div class="q-hint hidden">💡 Hint: In C, initializing an array with {0} sets all elements to zero.</div>
+          <div class="q-feedback hidden"></div>
+        </div>
+        <div class="quiz-question hidden" data-qid="cq2">
+          <p class="q-text">2. Why is <code>C[i][j] += ...</code> used instead of <code>C[i][j] = ...</code>?</p>
+          <div class="q-options">
+            <button class="q-opt" onclick="checkAnswer(this,'correct','quiz-matc')">To accumulate the sum across k iterations</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-matc')">To avoid an overflow error</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-matc')">Because = is not valid in C</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-matc')">To initialize the array</button>
+          </div>
+          <div class="q-hint hidden">💡 Hint: The inner k-loop runs N times, adding one product each time.</div>
+          <div class="q-feedback hidden"></div>
+        </div>
+        <div class="quiz-score hidden" id="score-quiz-matc"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────────────────── -->
+  <!--  SECTION 4 – ARRAY SORTING CONCEPTS (Slides 24-30)     -->
+  <!-- ─────────────────────────────────────────────────────── -->
+
+  <!-- SLIDE 24: Section Header -->
+  <section class="slide slide-section-header" id="slide-24" data-section="Array Sorting" data-index="24">
+    <div class="slide-inner centered">
+      <div class="section-number">04</div>
+      <h2 class="section-main-title">Array<br><span class="gradient-text">Sorting</span></h2>
+      <p class="section-desc">Understand the art of ordering data — one of the most fundamental operations in computer science.</p>
+      <div class="section-topics">
+        <span>What is Sorting?</span>
+        <span>Bubble Sort</span>
+        <span>Ascending</span>
+        <span>Descending</span>
+        <span>Comparisons</span>
+      </div>
+    </div>
+    <div class="bg-formula">[5,3,8,1,9,2]</div>
+  </section>
+
+  <!-- SLIDE 25: What is Sorting? -->
+  <section class="slide slide-info" id="slide-25" data-section="Array Sorting" data-index="25">
+    <div class="slide-inner">
+      <div class="section-tag">Section 4 · Array Sorting</div>
+      <h2 class="slide-title">What is <span class="gradient-text">Sorting?</span></h2>
+      <div class="two-col">
+        <div class="col-content">
+          <div class="definition-box glass">
+            <h3>📖 Definition</h3>
+            <p>Sorting is the process of arranging elements in a specific order — either <strong>ascending</strong> (smallest to largest) or <strong>descending</strong> (largest to smallest).</p>
+          </div>
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-icon">📈</div>
+              <div><strong>Ascending:</strong> [1, 3, 5, 7, 9] — smallest first</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">📉</div>
+              <div><strong>Descending:</strong> [9, 7, 5, 3, 1] — largest first</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🔍</div>
+              <div><strong>Why sort?</strong> Binary search only works on sorted data. Databases sort for fast queries.</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">⏱️</div>
+              <div><strong>Bubble Sort</strong> is O(n²) — simple to understand, great for learning.</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-visual">
+          <div class="sort-before-after glass">
+            <div class="ba-label">Before Sorting</div>
+            <div class="ba-array unsorted">
+              <div class="ba-cell">64</div>
+              <div class="ba-cell">34</div>
+              <div class="ba-cell">25</div>
+              <div class="ba-cell">12</div>
+              <div class="ba-cell">22</div>
+              <div class="ba-cell">11</div>
+              <div class="ba-cell">90</div>
+            </div>
+            <div class="ba-arrow">↓ Bubble Sort</div>
+            <div class="ba-label">After Sorting (Ascending)</div>
+            <div class="ba-array sorted">
+              <div class="ba-cell">11</div>
+              <div class="ba-cell">12</div>
+              <div class="ba-cell">22</div>
+              <div class="ba-cell">25</div>
+              <div class="ba-cell">34</div>
+              <div class="ba-cell">64</div>
+              <div class="ba-cell">90</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 26: Bubble Sort Concept -->
+  <section class="slide slide-info" id="slide-26" data-section="Array Sorting" data-index="26">
+    <div class="slide-inner">
+      <div class="section-tag">Section 4 · Array Sorting</div>
+      <h2 class="slide-title">Bubble Sort — <span class="gradient-text">How It Works</span></h2>
+      <div class="bubble-explain">
+        <div class="be-card glass">
+          <h3>The Core Idea 💡</h3>
+          <p>Compare adjacent elements. If they're in the wrong order, <strong>swap</strong> them. Repeat this for every pair, from left to right. After one full pass, the <strong>largest element "bubbles" to the end</strong>.</p>
+        </div>
+        <div class="be-passes glass">
+          <h3>Pass-by-Pass Example: [5, 3, 8, 1, 2]</h3>
+          <div class="pass-row">
+            <div class="pass-label">Pass 1:</div>
+            <div class="pass-states">
+              <span class="ps">[5,3,8,1,2]</span>→<span class="ps swap-ps">[3,5,8,1,2]</span>→<span class="ps">[3,5,8,1,2]</span>→<span class="ps swap-ps">[3,5,1,8,2]</span>→<span class="ps swap-ps">[3,5,1,2,<strong>8</strong>]</span>
+            </div>
+          </div>
+          <div class="pass-row">
+            <div class="pass-label">Pass 2:</div>
+            <div class="pass-states">
+              <span class="ps">[3,5,1,2,8]</span>→<span class="ps">[3,5,1,2,8]</span>→<span class="ps swap-ps">[3,1,5,2,8]</span>→<span class="ps swap-ps">[3,1,2,<strong>5</strong>,<strong>8</strong>]</span>
+            </div>
+          </div>
+          <div class="pass-row">
+            <div class="pass-label">Pass 3:</div>
+            <div class="pass-states">
+              <span class="ps swap-ps">[1,3,2,5,8]</span>→<span class="ps">[1,3,2,5,8]</span>→<span class="ps swap-ps">[1,2,<strong>3</strong>,<strong>5</strong>,<strong>8</strong>]</span>
+            </div>
+          </div>
+          <div class="pass-row">
+            <div class="pass-label">Pass 4:</div>
+            <div class="pass-states">
+              <span class="ps">[1,2,3,5,8]</span> ✅ Already sorted!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 27: Visualize Comparisons and Swaps -->
+  <section class="slide slide-steps" id="slide-27" data-section="Array Sorting" data-index="27">
+    <div class="slide-inner">
+      <div class="section-tag">Section 4 · Array Sorting</div>
+      <h2 class="slide-title">Visual <span class="gradient-text">Comparisons &amp; Swaps</span></h2>
+      <div class="sort-visual-container">
+        <div class="sort-array-display glass">
+          <div class="sad-title">Array Visualization</div>
+          <div class="bar-chart-container" id="sort-bars">
+            <!-- bars generated by JS -->
+          </div>
+          <div class="array-values" id="sort-values"></div>
+        </div>
+        <div class="sort-info glass" id="sort-info">
+          <div class="si-title">📍 Step Info</div>
+          <div id="sort-info-text">Click "Next Step" to start bubble sort visualization.</div>
+          <div class="si-legend">
+            <span class="leg-item"><span class="leg-box comparing"></span> Comparing</span>
+            <span class="leg-item"><span class="leg-box swapping"></span> Swapping</span>
+            <span class="leg-item"><span class="leg-box sorted-bar"></span> Sorted</span>
+          </div>
+        </div>
+        <div class="step-controls">
+          <button class="ctrl-btn" id="sort-prev-btn" onclick="sortVisStep(-1)" disabled>◀ Prev</button>
+          <span class="step-indicator" id="sort-step-ind">Step 0</span>
+          <button class="ctrl-btn primary-ctrl" id="sort-next-btn" onclick="sortVisStep(1)">Next Step ▶</button>
+          <button class="ctrl-btn reset-ctrl" onclick="sortVisReset()">↺ Reset</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 28: Ascending vs Descending -->
+  <section class="slide slide-info" id="slide-28" data-section="Array Sorting" data-index="28">
+    <div class="slide-inner">
+      <div class="section-tag">Section 4 · Array Sorting</div>
+      <h2 class="slide-title">Ascending vs <span class="gradient-text">Descending</span></h2>
+      <div class="asc-desc-layout">
+        <div class="asc-card glass">
+          <h3>📈 Ascending Sort</h3>
+          <div class="asc-desc-array">
+            <div class="adc-cell">1</div><div class="adc-cell">3</div><div class="adc-cell">5</div><div class="adc-cell">7</div><div class="adc-cell">9</div>
+          </div>
+          <div class="compare-rule">Swap condition: <code>arr[j] &gt; arr[j+1]</code></div>
+          <div class="code-snippet glass small-code">
+            <span class="code-keyword">if</span>(arr[j] &gt; arr[j+<span class="code-num">1</span>]) {<br>
+            &nbsp;&nbsp;temp = arr[j];<br>
+            &nbsp;&nbsp;arr[j] = arr[j+<span class="code-num">1</span>];<br>
+            &nbsp;&nbsp;arr[j+<span class="code-num">1</span>] = temp;<br>
+            }
+          </div>
+        </div>
+        <div class="vs-divider">VS</div>
+        <div class="desc-card glass">
+          <h3>📉 Descending Sort</h3>
+          <div class="asc-desc-array">
+            <div class="adc-cell desc-cell">9</div><div class="adc-cell desc-cell">7</div><div class="adc-cell desc-cell">5</div><div class="adc-cell desc-cell">3</div><div class="adc-cell desc-cell">1</div>
+          </div>
+          <div class="compare-rule">Swap condition: <code>arr[j] &lt; arr[j+1]</code></div>
+          <div class="code-snippet glass small-code">
+            <span class="code-keyword">if</span>(arr[j] &lt; arr[j+<span class="code-num">1</span>]) {<br>
+            &nbsp;&nbsp;temp = arr[j];<br>
+            &nbsp;&nbsp;arr[j] = arr[j+<span class="code-num">1</span>];<br>
+            &nbsp;&nbsp;arr[j+<span class="code-num">1</span>] = temp;<br>
+            }
+          </div>
+        </div>
+      </div>
+      <div class="key-diff glass">
+        <strong>💡 Only ONE character changes:</strong> &gt; for ascending, &lt; for descending!
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 29: Sorting Types Overview -->
+  <section class="slide slide-info" id="slide-29" data-section="Array Sorting" data-index="29">
+    <div class="slide-inner">
+      <div class="section-tag">Section 4 · Array Sorting</div>
+      <h2 class="slide-title">Sorting <span class="gradient-text">Algorithms Overview</span></h2>
+      <div class="algo-table-wrap glass">
+        <table class="algo-table">
+          <thead>
+            <tr><th>Algorithm</th><th>Best</th><th>Average</th><th>Worst</th><th>Space</th><th>Stable?</th></tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row"><td><strong>Bubble Sort</strong></td><td>O(n)</td><td>O(n²)</td><td>O(n²)</td><td>O(1)</td><td>✅ Yes</td></tr>
+            <tr><td>Selection Sort</td><td>O(n²)</td><td>O(n²)</td><td>O(n²)</td><td>O(1)</td><td>❌ No</td></tr>
+            <tr><td>Insertion Sort</td><td>O(n)</td><td>O(n²)</td><td>O(n²)</td><td>O(1)</td><td>✅ Yes</td></tr>
+            <tr><td>Merge Sort</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n)</td><td>✅ Yes</td></tr>
+            <tr><td>Quick Sort</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n²)</td><td>O(log n)</td><td>❌ No</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-note glass">
+        🎯 We focus on <strong>Bubble Sort</strong> — it's ideal for learning because each step is clearly understandable.
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 30: Sorting Quiz -->
+  <section class="slide slide-quiz" id="slide-30" data-section="Array Sorting" data-index="30">
+    <div class="slide-inner">
+      <div class="quiz-header">
+        <div class="quiz-badge">🧠 Quiz – Array Sorting</div>
+        <h2 class="slide-title">Sorting <span class="gradient-text">Knowledge Check</span></h2>
+      </div>
+      <div class="quiz-container" id="quiz-sort">
+        <div class="quiz-question active-q" data-qid="sq1">
+          <p class="q-text">1. What is the time complexity of Bubble Sort in the worst case?</p>
+          <div class="q-options">
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-sort')">O(n)</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-sort')">O(n log n)</button>
+            <button class="q-opt" onclick="checkAnswer(this,'correct','quiz-sort')">O(n²)</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-sort')">O(log n)</button>
+          </div>
+          <div class="q-hint hidden">💡 Hint: With n elements, there are n-1 passes and up to n-1 comparisons each pass.</div>
+          <div class="q-feedback hidden"></div>
+        </div>
+        <div class="quiz-question hidden" data-qid="sq2">
+          <p class="q-text">2. To sort in DESCENDING order using bubble sort, which condition should be used?</p>
+          <div class="q-options">
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-sort')">if(arr[j] > arr[j+1])</button>
+            <button class="q-opt" onclick="checkAnswer(this,'correct','quiz-sort')">if(arr[j] &lt; arr[j+1])</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-sort')">if(arr[j] == arr[j+1])</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-sort')">if(arr[j] != arr[j+1])</button>
+          </div>
+          <div class="q-hint hidden">💡 Hint: To put larger values first, swap when smaller is before larger.</div>
+          <div class="q-feedback hidden"></div>
+        </div>
+        <div class="quiz-question hidden" data-qid="sq3">
+          <p class="q-text">3. After the FIRST pass of bubble sort on [5, 3, 8, 1, 2], which element is in its final position?</p>
+          <div class="q-options">
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-sort')">5</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-sort')">1</button>
+            <button class="q-opt" onclick="checkAnswer(this,'correct','quiz-sort')">8</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-sort')">3</button>
+          </div>
+          <div class="q-hint hidden">💡 Hint: After each pass, the largest remaining element "bubbles" to the end.</div>
+          <div class="q-feedback hidden"></div>
+        </div>
+        <div class="quiz-score hidden" id="score-quiz-sort"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────────────────── -->
+  <!--  SECTION 5 – SORTING IN C (Slides 31-40)               -->
+  <!-- ─────────────────────────────────────────────────────── -->
+
+  <!-- SLIDE 31: Section Header -->
+  <section class="slide slide-section-header" id="slide-31" data-section="Sorting in C" data-index="31">
+    <div class="slide-inner centered">
+      <div class="section-number">05</div>
+      <h2 class="section-main-title">Array Sorting<br><span class="gradient-text">in C</span></h2>
+      <p class="section-desc">Bring sorting to life with complete C programs, step-by-step execution, and a virtual compiler simulation.</p>
+      <div class="section-topics">
+        <span>Ascending Program</span>
+        <span>Descending Program</span>
+        <span>Loop Tracing</span>
+        <span>Swap Visualization</span>
+        <span>Virtual Compiler</span>
+      </div>
+    </div>
+    <div class="bg-formula">swap(a, b)</div>
+  </section>
+
+  <!-- SLIDE 32: Ascending Sort – Full C Program -->
+  <section class="slide slide-code" id="slide-32" data-section="Sorting in C" data-index="32">
+    <div class="slide-inner">
+      <div class="section-tag">Section 5 · Sorting in C</div>
+      <h2 class="slide-title">Ascending Sort — <span class="gradient-text">C Program</span></h2>
+      <div class="code-display glass">
+        <div class="code-header">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="code-filename">bubble_sort_asc.c</span>
+        </div>
+        <pre class="code-content"><code><span class="ln">1</span>  <span class="code-keyword">#include</span> <span class="code-string">&lt;stdio.h&gt;</span>
+<span class="ln">2</span>
+<span class="ln">3</span>  <span class="code-keyword">int</span> main() {
+<span class="ln">4</span>      <span class="code-keyword">int</span> arr[] = {<span class="code-num">64</span>, <span class="code-num">34</span>, <span class="code-num">25</span>, <span class="code-num">12</span>, <span class="code-num">22</span>};
+<span class="ln">5</span>      <span class="code-keyword">int</span> n = <span class="code-num">5</span>;
+<span class="ln">6</span>      <span class="code-keyword">int</span> i, j, temp;
+<span class="ln">7</span>
+<span class="ln">8</span>      <span class="code-keyword">for</span>(i = <span class="code-num">0</span>; i &lt; n-<span class="code-num">1</span>; i++) {
+<span class="ln">9</span>          <span class="code-keyword">for</span>(j = <span class="code-num">0</span>; j &lt; n-i-<span class="code-num">1</span>; j++) {
+<span class="ln">10</span>             <span class="code-keyword">if</span>(arr[j] &gt; arr[j+<span class="code-num">1</span>]) {
+<span class="ln">11</span>                 temp = arr[j];
+<span class="ln">12</span>                 arr[j] = arr[j+<span class="code-num">1</span>];
+<span class="ln">13</span>                 arr[j+<span class="code-num">1</span>] = temp;
+<span class="ln">14</span>             }
+<span class="ln">15</span>         }
+<span class="ln">16</span>     }
+<span class="ln">17</span>
+<span class="ln">18</span>     printf(<span class="code-string">"Sorted array: "</span>);
+<span class="ln">19</span>     <span class="code-keyword">for</span>(i=<span class="code-num">0</span>; i&lt;n; i++)
+<span class="ln">20</span>         printf(<span class="code-string">"%d "</span>, arr[i]);
+<span class="ln">21</span>     <span class="code-keyword">return</span> <span class="code-num">0</span>;
+<span class="ln">22</span> }</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 33: Descending Sort – Full C Program -->
+  <section class="slide slide-code" id="slide-33" data-section="Sorting in C" data-index="33">
+    <div class="slide-inner">
+      <div class="section-tag">Section 5 · Sorting in C</div>
+      <h2 class="slide-title">Descending Sort — <span class="gradient-text">C Program</span></h2>
+      <div class="code-display glass">
+        <div class="code-header">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="code-filename">bubble_sort_desc.c</span>
+        </div>
+        <pre class="code-content"><code><span class="ln">1</span>  <span class="code-keyword">#include</span> <span class="code-string">&lt;stdio.h&gt;</span>
+<span class="ln">2</span>
+<span class="ln">3</span>  <span class="code-keyword">int</span> main() {
+<span class="ln">4</span>      <span class="code-keyword">int</span> arr[] = {<span class="code-num">64</span>, <span class="code-num">34</span>, <span class="code-num">25</span>, <span class="code-num">12</span>, <span class="code-num">22</span>};
+<span class="ln">5</span>      <span class="code-keyword">int</span> n = <span class="code-num">5</span>;
+<span class="ln">6</span>      <span class="code-keyword">int</span> i, j, temp;
+<span class="ln">7</span>
+<span class="ln">8</span>      <span class="code-keyword">for</span>(i = <span class="code-num">0</span>; i &lt; n-<span class="code-num">1</span>; i++) {
+<span class="ln">9</span>          <span class="code-keyword">for</span>(j = <span class="code-num">0</span>; j &lt; n-i-<span class="code-num">1</span>; j++) {
+<span class="ln">10</span>             <span class="code-keyword">if</span>(arr[j] <span class="code-keyword">&lt;</span> arr[j+<span class="code-num">1</span>]) {  <span class="code-comment">// ← Changed to &lt;</span>
+<span class="ln">11</span>                 temp = arr[j];
+<span class="ln">12</span>                 arr[j] = arr[j+<span class="code-num">1</span>];
+<span class="ln">13</span>                 arr[j+<span class="code-num">1</span>] = temp;
+<span class="ln">14</span>             }
+<span class="ln">15</span>         }
+<span class="ln">16</span>     }
+<span class="ln">17</span>
+<span class="ln">18</span>     printf(<span class="code-string">"Sorted (desc): "</span>);
+<span class="ln">19</span>     <span class="code-keyword">for</span>(i=<span class="code-num">0</span>; i&lt;n; i++)
+<span class="ln">20</span>         printf(<span class="code-string">"%d "</span>, arr[i]);
+<span class="ln">21</span>     <span class="code-keyword">return</span> <span class="code-num">0</span>;
+<span class="ln">22</span> }</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 34: Swap Mechanism Explained -->
+  <section class="slide slide-info" id="slide-34" data-section="Sorting in C" data-index="34">
+    <div class="slide-inner">
+      <div class="section-tag">Section 5 · Sorting in C</div>
+      <h2 class="slide-title">The Swap <span class="gradient-text">Mechanism</span></h2>
+      <div class="swap-layout">
+        <div class="swap-visual glass">
+          <h3>Classic 3-Variable Swap</h3>
+          <div class="swap-steps" id="swap-demo">
+            <div class="swap-step active-swap">
+              <div class="sw-state">
+                <div class="sw-box a-box">arr[j] = <span id="sw-aj">34</span></div>
+                <div class="sw-box b-box">arr[j+1] = <span id="sw-bj">64</span></div>
+                <div class="sw-box t-box">temp = <span id="sw-temp">?</span></div>
+              </div>
+              <div class="sw-label">Initial State</div>
+            </div>
+          </div>
+          <div class="step-controls compact-ctrl">
+            <button class="ctrl-btn" id="swap-prev" onclick="swapDemoStep(-1)" disabled>◀</button>
+            <span class="step-indicator" id="swap-step-ind">Step 0 / 4</span>
+            <button class="ctrl-btn primary-ctrl" id="swap-next" onclick="swapDemoStep(1)">Next ▶</button>
+            <button class="ctrl-btn reset-ctrl" onclick="swapDemoReset()">↺</button>
+          </div>
+        </div>
+        <div class="swap-code glass">
+          <h3>Swap in C Code</h3>
+          <div class="sw-code-lines">
+            <div class="sw-line" id="swl-0">// Before: arr[j]=34, arr[j+1]=64</div>
+            <div class="sw-line" id="swl-1">temp = arr[j];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// temp = 34</div>
+            <div class="sw-line" id="swl-2">arr[j] = arr[j+1];&nbsp;// arr[j] = 64</div>
+            <div class="sw-line" id="swl-3">arr[j+1] = temp;&nbsp;&nbsp;&nbsp;// arr[j+1] = 34</div>
+            <div class="sw-line" id="swl-4">// After: arr[j]=64, arr[j+1]=34</div>
+          </div>
+          <div class="swap-note glass">
+            ⚠️ Without <code>temp</code>, direct assignment would overwrite the first value before copying it!
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 35: Loop Trace for Sorting -->
+  <section class="slide slide-info" id="slide-35" data-section="Sorting in C" data-index="35">
+    <div class="slide-inner">
+      <div class="section-tag">Section 5 · Sorting in C</div>
+      <h2 class="slide-title">Sorting Loop <span class="gradient-text">Trace</span></h2>
+      <div class="loop-trace-table glass">
+        <div class="ltt-title">Array: [64, 34, 25, 12, 22] — Pass-by-Pass Trace</div>
+        <table class="trace-table">
+          <thead>
+            <tr><th>Pass (i)</th><th>Compare Position (j)</th><th>Comparison</th><th>Swap?</th><th>Array After</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>0</td><td>64 &gt; 34</td><td>✅ Yes</td><td>[34, 64, 25, 12, 22]</td></tr>
+            <tr><td>0</td><td>1</td><td>64 &gt; 25</td><td>✅ Yes</td><td>[34, 25, 64, 12, 22]</td></tr>
+            <tr><td>0</td><td>2</td><td>64 &gt; 12</td><td>✅ Yes</td><td>[34, 25, 12, 64, 22]</td></tr>
+            <tr><td>0</td><td>3</td><td>64 &gt; 22</td><td>✅ Yes</td><td>[34, 25, 12, 22, <strong>64</strong>]</td></tr>
+            <tr class="pass-end"><td>1</td><td>0</td><td>34 &gt; 25</td><td>✅ Yes</td><td>[25, 34, 12, 22, 64]</td></tr>
+            <tr><td>1</td><td>1</td><td>34 &gt; 12</td><td>✅ Yes</td><td>[25, 12, 34, 22, 64]</td></tr>
+            <tr><td>1</td><td>2</td><td>34 &gt; 22</td><td>✅ Yes</td><td>[25, 12, 22, <strong>34</strong>, <strong>64</strong>]</td></tr>
+            <tr class="pass-end final-row"><td>...</td><td>...</td><td>...</td><td>...</td><td>[<strong>12, 22, 25, 34, 64</strong>] ✅</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 36: Virtual Compiler – Sorting -->
+  <section class="slide slide-compiler" id="slide-36" data-section="Sorting in C" data-index="36">
+    <div class="slide-inner">
+      <div class="section-tag">Section 5 · Sorting in C</div>
+      <h2 class="slide-title">🖥️ Virtual Compiler — <span class="gradient-text">Bubble Sort</span></h2>
+      <div class="compiler-layout">
+        <div class="compiler-code glass" id="sort-compiler-code">
+          <div class="code-header">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+            <span class="code-filename">bubble_sort.c — Execution</span>
+          </div>
+          <div class="exec-lines" id="sort-exec-lines">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+        <div class="compiler-right">
+          <div class="var-watch glass" id="sort-var-watch">
+            <div class="vw-title">📊 Variable Watch</div>
+            <div class="vw-content">
+              <div class="vw-row"><span>i</span><span id="vw-sort-i">—</span></div>
+              <div class="vw-row"><span>j</span><span id="vw-sort-j">—</span></div>
+              <div class="vw-row"><span>temp</span><span id="vw-sort-temp">—</span></div>
+              <div class="vw-row"><span>Swapped?</span><span id="vw-sort-swap">—</span></div>
+            </div>
+          </div>
+          <div class="sort-arr-view glass">
+            <div class="vw-title">📋 Array State</div>
+            <div class="sort-arr-display" id="sort-arr-display">
+              <div class="sad-cell" id="sc-0">64</div>
+              <div class="sad-cell" id="sc-1">34</div>
+              <div class="sad-cell" id="sc-2">25</div>
+              <div class="sad-cell" id="sc-3">12</div>
+              <div class="sad-cell" id="sc-4">22</div>
+            </div>
+          </div>
+          <div class="output-console glass">
+            <div class="vw-title">💬 Console Output</div>
+            <div class="console-text" id="sort-console-text"></div>
+          </div>
+        </div>
+      </div>
+      <div class="step-controls">
+        <button class="ctrl-btn" id="sort-comp-prev" onclick="sortCompilerStep(-1)" disabled>◀ Prev</button>
+        <span class="step-indicator" id="sort-comp-ind">Step 0</span>
+        <button class="ctrl-btn primary-ctrl" id="sort-comp-next" onclick="sortCompilerStep(1)">▶ Next Step</button>
+        <button class="ctrl-btn reset-ctrl" onclick="sortCompilerReset()">↺ Reset</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 37: Optimized Bubble Sort -->
+  <section class="slide slide-info" id="slide-37" data-section="Sorting in C" data-index="37">
+    <div class="slide-inner">
+      <div class="section-tag">Section 5 · Sorting in C</div>
+      <h2 class="slide-title">Optimized <span class="gradient-text">Bubble Sort</span></h2>
+      <div class="two-col">
+        <div class="col-content">
+          <div class="definition-box glass">
+            <h3>🚀 Early Exit Optimization</h3>
+            <p>Add a <code>swapped</code> flag. If no swaps occur in a pass, the array is already sorted — exit early!</p>
+            <div class="complexity-box">
+              <strong>Best case improves:</strong> O(n²) → O(n)
+            </div>
+          </div>
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-icon">✅</div>
+              <div>Set <code>swapped = 0</code> at the start of each pass</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">✅</div>
+              <div>Set <code>swapped = 1</code> whenever a swap occurs</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">✅</div>
+              <div>After each pass, check: if <code>swapped == 0</code>, break</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-visual">
+          <div class="code-display glass" style="padding: 0;">
+            <div class="code-header">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              <span class="code-filename">optimized_bubble.c</span>
+            </div>
+            <pre class="code-content"><code><span class="code-keyword">for</span>(i=<span class="code-num">0</span>; i&lt;n-<span class="code-num">1</span>; i++) {
+  <span class="code-keyword">int</span> swapped = <span class="code-num">0</span>;
+  <span class="code-keyword">for</span>(j=<span class="code-num">0</span>; j&lt;n-i-<span class="code-num">1</span>; j++) {
+    <span class="code-keyword">if</span>(arr[j] &gt; arr[j+<span class="code-num">1</span>]) {
+      temp = arr[j];
+      arr[j] = arr[j+<span class="code-num">1</span>];
+      arr[j+<span class="code-num">1</span>] = temp;
+      swapped = <span class="code-num">1</span>;
+    }
+  }
+  <span class="code-keyword">if</span>(swapped == <span class="code-num">0</span>) <span class="code-keyword">break</span>; <span class="code-comment">// ✅ Early exit</span>
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 38: Final Sorting Quiz -->
+  <section class="slide slide-quiz" id="slide-38" data-section="Sorting in C" data-index="38">
+    <div class="slide-inner">
+      <div class="quiz-header">
+        <div class="quiz-badge">🧠 Final Quiz – Sorting in C</div>
+        <h2 class="slide-title">Code <span class="gradient-text">Master Challenge</span></h2>
+      </div>
+      <div class="quiz-container" id="quiz-sortc">
+        <div class="quiz-question active-q" data-qid="scq1">
+          <p class="q-text">1. Why do we need a <code>temp</code> variable to swap two values?</p>
+          <div class="q-options">
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-sortc')">To reduce memory usage</button>
+            <button class="q-opt" onclick="checkAnswer(this,'correct','quiz-sortc')">To avoid overwriting a value before copying it</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-sortc')">C requires 3 variables for swapping</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-sortc')">To improve time complexity</button>
+          </div>
+          <div class="q-hint hidden">💡 Hint: If you do arr[j] = arr[j+1] first, you lose the original value of arr[j].</div>
+          <div class="q-feedback hidden"></div>
+        </div>
+        <div class="quiz-question hidden" data-qid="scq2">
+          <p class="q-text">2. In optimized bubble sort, when do we break early?</p>
+          <div class="q-options">
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-sortc')">When i reaches n</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-sortc')">When a swap occurs</button>
+            <button class="q-opt" onclick="checkAnswer(this,'correct','quiz-sortc')">When no swap occurred in a full pass</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-sortc')">When j reaches 0</button>
+          </div>
+          <div class="q-hint hidden">💡 Hint: No swaps means the array is already sorted — no need to continue.</div>
+          <div class="q-feedback hidden"></div>
+        </div>
+        <div class="quiz-question hidden" data-qid="scq3">
+          <p class="q-text">3. What does the inner loop's upper bound <code>n-i-1</code> achieve?</p>
+          <div class="q-options">
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-sortc')">Makes the algorithm faster always</button>
+            <button class="q-opt" onclick="checkAnswer(this,'correct','quiz-sortc')">Skips already-sorted elements at the end</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-sortc')">Prevents accessing negative indices</button>
+            <button class="q-opt" onclick="checkAnswer(this,'wrong','quiz-sortc')">Sorts only part of the array</button>
+          </div>
+          <div class="q-hint hidden">💡 Hint: After pass i, the last i+1 elements are in their final sorted position.</div>
+          <div class="q-feedback hidden"></div>
+        </div>
+        <div class="quiz-score hidden" id="score-quiz-sortc"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────────────────── -->
+  <!--  SECTION 6 – REVIEW & CREDITS (Slides 39-43)           -->
+  <!-- ─────────────────────────────────────────────────────── -->
+
+  <!-- SLIDE 39: Section Header – Review -->
+  <section class="slide slide-section-header" id="slide-39" data-section="Review" data-index="39">
+    <div class="slide-inner centered">
+      <div class="section-number">06</div>
+      <h2 class="section-main-title">Course<br><span class="gradient-text">Review</span></h2>
+      <p class="section-desc">Consolidate everything you've learned in this comprehensive review section.</p>
+      <div class="section-topics">
+        <span>Key Concepts</span>
+        <span>Cheat Sheet</span>
+        <span>Tips &amp; Tricks</span>
+        <span>Next Steps</span>
+      </div>
+    </div>
+    <div class="bg-formula">Summary</div>
+  </section>
+
+  <!-- SLIDE 40: Key Concepts Summary -->
+  <section class="slide slide-info" id="slide-40" data-section="Review" data-index="40">
+    <div class="slide-inner">
+      <div class="section-tag">Section 6 · Review</div>
+      <h2 class="slide-title">Key Concepts <span class="gradient-text">Summary</span></h2>
+      <div class="summary-grid">
+        <div class="summary-card glass">
+          <div class="sc-icon">🔢</div>
+          <h3>Matrix Multiplication</h3>
+          <ul>
+            <li>A(m×n) × B(n×p) = C(m×p)</li>
+            <li>C[i][j] = sum of A[i][k] × B[k][j]</li>
+            <li>Cols of A must equal Rows of B</li>
+            <li>O(n³) time complexity</li>
+          </ul>
+        </div>
+        <div class="summary-card glass">
+          <div class="sc-icon">💻</div>
+          <h3>Matrix in C</h3>
+          <ul>
+            <li>Declare: <code>int C[N][N] = {0}</code></li>
+            <li>Triple nested loop (i, j, k)</li>
+            <li>Use <code>+=</code> to accumulate</li>
+            <li>Print with nested printf loop</li>
+          </ul>
+        </div>
+        <div class="summary-card glass">
+          <div class="sc-icon">🔀</div>
+          <h3>Bubble Sort</h3>
+          <ul>
+            <li>Compare adjacent elements</li>
+            <li>Swap if in wrong order</li>
+            <li>n-1 passes for n elements</li>
+            <li>O(n²) worst, O(n) optimized best</li>
+          </ul>
+        </div>
+        <div class="summary-card glass">
+          <div class="sc-icon">⚡</div>
+          <h3>Sorting in C</h3>
+          <ul>
+            <li>Ascending: <code>if(arr[j] &gt; arr[j+1])</code></li>
+            <li>Descending: <code>if(arr[j] &lt; arr[j+1])</code></li>
+            <li>3-variable swap with temp</li>
+            <li>Optimize with swapped flag</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 41: Cheat Sheet -->
+  <section class="slide slide-cheat" id="slide-41" data-section="Review" data-index="41">
+    <div class="slide-inner">
+      <div class="section-tag">Section 6 · Review</div>
+      <h2 class="slide-title">Quick <span class="gradient-text">Cheat Sheet</span></h2>
+      <div class="cheat-layout">
+        <div class="cheat-col">
+          <div class="cheat-card glass">
+            <div class="cc-title">Matrix Multiplication Template</div>
+            <pre class="cheat-code"><code><span class="code-keyword">for</span>(i=<span class="code-num">0</span>; i&lt;N; i++)
+  <span class="code-keyword">for</span>(j=<span class="code-num">0</span>; j&lt;N; j++) {
+    C[i][j] = <span class="code-num">0</span>;
+    <span class="code-keyword">for</span>(k=<span class="code-num">0</span>; k&lt;N; k++)
+      C[i][j] += A[i][k]*B[k][j];
+  }</code></pre>
+          </div>
+        </div>
+        <div class="cheat-col">
+          <div class="cheat-card glass">
+            <div class="cc-title">Bubble Sort Template</div>
+            <pre class="cheat-code"><code><span class="code-keyword">for</span>(i=<span class="code-num">0</span>; i&lt;n-<span class="code-num">1</span>; i++)
+  <span class="code-keyword">for</span>(j=<span class="code-num">0</span>; j&lt;n-i-<span class="code-num">1</span>; j++)
+    <span class="code-keyword">if</span>(arr[j] &gt; arr[j+<span class="code-num">1</span>]) {
+      temp=arr[j];
+      arr[j]=arr[j+<span class="code-num">1</span>];
+      arr[j+<span class="code-num">1</span>]=temp;
+    }</code></pre>
+          </div>
+        </div>
+        <div class="cheat-col">
+          <div class="cheat-card glass">
+            <div class="cc-title">Key Formulas</div>
+            <div class="formula-list">
+              <div class="fl-row"><code>C[i][j] = Σ A[i][k]×B[k][j]</code></div>
+              <div class="fl-row"><code>swap: temp→a→b→temp</code></div>
+              <div class="fl-row"><code>n×n matrix: N³ iterations</code></div>
+              <div class="fl-row"><code>bubble passes: n-1</code></div>
+              <div class="fl-row"><code>result dim: m×p from A(m×n)×B(n×p)</code></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 42: Next Steps -->
+  <section class="slide slide-nextsteps" id="slide-42" data-section="Review" data-index="42">
+    <div class="slide-inner">
+      <div class="section-tag">Section 6 · Review</div>
+      <h2 class="slide-title">Your <span class="gradient-text">Next Steps</span></h2>
+      <div class="nextsteps-grid">
+        <div class="ns-card glass">
+          <div class="ns-num">1</div>
+          <h3>Practice Problems</h3>
+          <p>Try multiplying 4×4 and 5×5 matrices by hand. Implement them in C and verify output.</p>
+        </div>
+        <div class="ns-card glass">
+          <div class="ns-num">2</div>
+          <h3>Explore More Sorts</h3>
+          <p>Implement Selection Sort, Insertion Sort, and Merge Sort — compare their performance.</p>
+        </div>
+        <div class="ns-card glass">
+          <div class="ns-num">3</div>
+          <h3>Dynamic Input</h3>
+          <p>Modify the programs to accept user input for matrix values and array size using scanf().</p>
+        </div>
+        <div class="ns-card glass">
+          <div class="ns-num">4</div>
+          <h3>2D Array Projects</h3>
+          <p>Build a Tic-Tac-Toe game, a simple image filter, or a spreadsheet-like table using 2D arrays.</p>
+        </div>
+        <div class="ns-card glass">
+          <div class="ns-num">5</div>
+          <h3>Advanced C Topics</h3>
+          <p>Learn pointers, dynamic memory (malloc), structures, and file I/O to level up your C skills.</p>
+        </div>
+        <div class="ns-card glass">
+          <div class="ns-num">6</div>
+          <h3>Join VoltX Academy</h3>
+          <p>Enroll in advanced courses on Data Structures, Algorithms, and Systems Programming.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 43: Credits -->
+  <section class="slide slide-credits" id="slide-43" data-section="Credits" data-index="43">
+    <div class="slide-inner centered">
+      <div class="credits-sparkles">✨ 🎓 ✨</div>
+      <h1 class="credits-title">Course Complete!</h1>
+      <div class="credits-divider"></div>
+      <div class="credits-name">Created by</div>
+      <h2 class="creator-name">Adithyan S</h2>
+      <div class="credits-academy">
+        <span class="academy-icon">⚡</span>
+        <span class="academy-name">VoltX Academy</span>
+      </div>
+      <div class="credits-tagline">"Powering the next generation of programmers, one concept at a time."</div>
+      <div class="final-score-card glass" id="final-score-card">
+        <div class="fsc-title">🏆 Your Final Score</div>
+        <div class="fsc-stats" id="fsc-stats">Complete all quizzes to see your score!</div>
+      </div>
+      <button class="cta-btn restart-btn" onclick="restartCourse()">↺ Restart Course</button>
+      <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Tooltip overlay -->
+<div class="tooltip-overlay" id="tooltip-overlay"></div>
+
+<!-- Keyboard hint -->
+<div class="keyboard-hint">
+  Use <kbd>←</kbd> <kbd>→</kbd> keys to navigate slides
+</div>
+
+<!-- Scripts -->
+<script src="js/main.js"></script>
+<script src="js/matrix-sim.js"></script>
+<script src="js/sorting-sim.js"></script>
+<script src="js/quiz.js"></script>
+
+</body>
+</html>
